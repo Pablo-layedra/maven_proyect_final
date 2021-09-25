@@ -1,6 +1,7 @@
 package prueba.finnal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -124,7 +125,10 @@ public class MainConcesionaria extends Automovil{
 				System.out.println("Ingresar placa de auto: ");
 				break;
 			case "4":
-				System.out.println("No ha elejido ninguna opcion valida");
+				for (int i = 0; i < cantidadAutos.size(); i++) {
+					Arrays.sort(cantidadAutos);
+					System.out.println(cantidadAutos.get(i));
+				}
 				break;
 			case "5":
 				System.out.println("Saliendo del sistema");
