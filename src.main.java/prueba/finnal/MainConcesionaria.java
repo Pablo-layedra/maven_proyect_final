@@ -19,9 +19,10 @@ public class MainConcesionaria extends Automovil{
 		int opcion2;
 		
 		List<Automovil> cantidadAutos = new ArrayList<Automovil>();
-		Automovil marcaAuto= new Automovil();
-		Automovil modeloAuto= new Automovil();
-		Automovil placaAuto= new Automovil();
+		Automovil autoIngresar= new Automovil();
+		
+		AutoNacional autoNacional= new AutoNacional();
+		AutoImportado autoImportado= new AutoImportado();
 		
 		do {
 			System.out.println("##################################");
@@ -56,24 +57,83 @@ public class MainConcesionaria extends Automovil{
 					System.out.println("Ingresar Placa del auto");
 					String placa=teclado3.nextLine();
 					System.out.println("Ingresar Kilometraje del auto");
-					String kilometraje=teclado3.nextLine();
+					int kilometraje=teclado2.nextInt();
+					System.out.println("Ingresar codigo nacional del auto");
+					String codigoNacional=teclado3.nextLine();
 					
+					autoIngresar.setMarcaAuto(marca);
+					autoIngresar.setModeloAuto(modelo);
+					autoIngresar.setAñoAuto(año);
+					autoIngresar.setPlacaAuto(placa);
+					autoIngresar.setKilometraje(kilometraje);
+					autoNacional.setCodigoNacional(codigoNacional);
+					autoIngresar.setAutoNacional(autoNacional);
 					
+					cantidadAutos.add(autoIngresar);
+					
+				}else if (opcion2==2){
+					System.out.println("Ingresar Marca del auto");
+					String marca=teclado3.nextLine();
+					System.out.println("Ingresar Modelo del auto");
+					String modelo=teclado3.nextLine();
+					System.out.println("Ingresar Año de fabricacion del auto");
+					String año=teclado3.nextLine();
+					System.out.println("Ingresar Placa del auto");
+					String placa=teclado3.nextLine();
+					System.out.println("Ingresar Kilometraje del auto");
+					int kilometraje=teclado2.nextInt();
+					System.out.println("Ingresar codigo de importacion del auto");
+					String codigoImportacion=teclado3.nextLine();
+					System.out.println("Ingresar valor de importacion del auto");
+					String valorImportacion=teclado3.nextLine();
+					
+					autoIngresar.setMarcaAuto(marca);
+					autoIngresar.setModeloAuto(modelo);
+					autoIngresar.setAñoAuto(año);
+					autoIngresar.setPlacaAuto(placa);
+					autoIngresar.setKilometraje(kilometraje);
+					autoImportado.setCodigoImportación(codigoImportacion);
+					autoImportado.setValorImportación(valorImportacion);
+					autoIngresar.setAutoImportado(autoImportado);
+					
+					cantidadAutos.add(autoIngresar);
 				}
-				
 				break;
 			case "2":
-				System.out.println("No existen pagos ");
+				System.out.println();
+				System.out.println("Ingresar placa de auto: ");
+				String placaEscrita=teclado3.nextLine();
+				
+				boolean comparacion = false;
+				
+				for (int i = 0; i < cantidadAutos.size(); i++) {
+					Automovil carroComparar = cantidadAutos.get(i);
+					String carroExistente = carroComparar.getMarcaAuto();
+					boolean comparacionLocal = placaEscrita.equals((carroExistente));
+
+					if (comparacionLocal == true) {
+						comparacion = true;
+						System.out.println();
+						System.out.println(cantidadAutos.get(i));
+					}else {
+						
+					}
+				}
 				break;
 			case "3":
-				System.out.println("Cerrando el sistema ");
+				System.out.println("Ingresar placa de auto: ");
+				break;
+			case "4":
+				System.out.println("No ha elejido ninguna opcion valida");
+				break;
+			case "5":
+				System.out.println("Saliendo del sistema");
 				break;
 			default:
 				System.out.println("No ha elejido ninguna opcion valida");
 				break;
 			}
-			
-		}while (!opcion.equals("3"));
+		}while (!opcion.equals("5"));
 		System.out.println("Gracias por preferirnos");
 	}
 }

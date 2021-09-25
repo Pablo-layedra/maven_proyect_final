@@ -6,7 +6,7 @@ public class Automovil {
 	private String modeloAuto;
 	private String placaAuto;
 	private String añoAuto;
-	private String kilometraje;
+	private int kilometraje;
 	private AutoNacional autoNacional;
 	private AutoImportado autoImportado;
 	
@@ -47,12 +47,25 @@ public class Automovil {
 	public void setAñoAuto(String añoAuto) {
 		this.añoAuto = añoAuto;
 	}
-	public String getKilometraje() {
+	public int getKilometraje() {
 		return kilometraje;
 	}
-	public void setKilometraje(String kilometraje) {
+	public void setKilometraje(int kilometraje) {
 		this.kilometraje = kilometraje;
 	}
+	
+	public int compareTo(Automovil o) {
+		// TODO Auto-generated method stub
+		
+		if (this.kilometraje< o.getKilometraje()) {
+			return -1;
+		}else if (this.kilometraje==o.getKilometraje()) {
+			return 0;
+		}else{
+			return (1);
+		}
+	}	
+	
 	@Override
 	public String toString() {
 		return "Automovil [MARCA: " + marcaAuto + ", MODELO: " + modeloAuto + ", PLACA: " + placaAuto
